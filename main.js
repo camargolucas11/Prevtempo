@@ -8,8 +8,18 @@ function getWeather() {
     .then(data => {
         const cidadeNome = data.name;
         const temperatura = data.main.temp;
-        const wheatherDesc = data.wheather[0].description;
+        const wheatherDesc = data.weather[0].description;
 
-        const wheatherDiv = document.getElementById('wheather');
-        
+        const weatherDiv = document.getElementById('weather');
+        weatherDiv.innerHTML = `<p>Cidade: ${cidadeNome}</p> <p>Temperatura: ${temperatura}°C</p> <p>Tempo: ${wheatherDesc}</p>`;
     })
+
+    .catch(error => {
+        console.error('Erro', error);
+    });
+}
+
+getWeather();
+   
+
+    
