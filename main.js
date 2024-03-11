@@ -1,7 +1,7 @@
 function getWeather() {
     const apiKey = '1ccc8bf295a0fb23276f06e9f3a9b186';
-
-    const apiLink = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+    const apiCity = document.getElementById('cidade').value;
+    const apiLink = `https://api.openweathermap.org/data/2.5/weather?q=${apiCity}&appid=${apiKey}&units=metric`;
 
     fetch(apiLink)
     .then(Response => Response.json())
@@ -18,8 +18,8 @@ function getWeather() {
         console.error('Erro', error);
     });
 }
+document.getElementById('cidade').addEventListener('input', getWeather)
 
-getWeather();
    
 
     
